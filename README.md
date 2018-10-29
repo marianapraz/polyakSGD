@@ -23,6 +23,6 @@ loss = loss_fn(yhat,y)
 
 # Now run .backward(), update the model, etc ... and
 optimizer.step(runavg_loss)
-# Define this runavg_loss depending on the problem. Could be replaced by a true loss in case of need.
+# Define this runavg_loss depending on the problem. Could be replaced by a true training loss if available.
 ```
 
