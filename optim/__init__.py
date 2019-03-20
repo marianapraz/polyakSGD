@@ -1,1 +1,1 @@
-from .adaptive import Adaptive
+from .polyak import PolyakSGD
