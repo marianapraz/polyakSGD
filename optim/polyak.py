@@ -2,7 +2,7 @@ import torch
 from torch.optim.optimizer import Optimizer, required
 
 
-class Adaptive(Optimizer):
+class PolyakSGD(Optimizer):
     r"""Implements adaptive gradient descent using Polyak's time step.
 
     Args:
@@ -19,7 +19,7 @@ class Adaptive(Optimizer):
                         good choice, which is roughly 20 epochs on the CIFAR datasets.
 
     Example:
-        >>> optimizer = Adaptive(model.parameters(), max_lr = 0.1, 
+        >>> optimizer = PolyakSGD(model.parameters(), max_lr = 0.1, 
                             fstar = 0.200,
                             window = 20*grad_steps_in_epoch)
         >>> optimizer.zero_grad()
@@ -51,11 +51,11 @@ class Adaptive(Optimizer):
         
         self.fstar = fstar
         self.window = window
-        super(Adaptive, self).__init__(params, defaults)
+        super(PolyakSGD, self).__init__(params, defaults)
 
 
     def __setstate__(self, state):
-        super(Adaptive, self).__setstate__(state)
+        super(PolyakSGD, self).__setstate__(state)
 
 
     def step(self,runavg_loss):
