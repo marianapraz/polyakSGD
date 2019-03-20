@@ -6,7 +6,7 @@ import torch.nn as nn
 
 
 from models import LeNet
-from optim import Adaptive
+from optim import PolyakSGD
 import dataloader
 from dataloader import mnist
 
@@ -32,8 +32,8 @@ class CELog(nn.Module):
         return self.nl(x.log(), y)
 criterion = CELog()
 
-## Choose optimizer to be Adaptive
-optimizer = Adaptive(model.parameters(), max_lr = 0.1, fstar = 0.0,
+## Choose optimizer to be PolyakSGD
+optimizer = PolyakSGD(model.parameters(), max_lr = 0.1, fstar = 0.0,
         window = 20*int(60000/train_batch_size))
 
 
