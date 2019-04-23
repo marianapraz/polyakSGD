@@ -1,4 +1,4 @@
-This is a repository for Polyak SGD. Polyak SGD adapts Polyak's step size to stochastic gradients.
+This is a repository for Polyak SGD. Polyak SGD adapts Polyak's step size to stochastic gradients. For a more detailed explanation see https://arxiv.org/abs/1903.08688 (currently under review in SIMODS).
 
 The repository is divided into several parts:
   * The folder `optim/` contains the optimizer code for PolyakSGD.
